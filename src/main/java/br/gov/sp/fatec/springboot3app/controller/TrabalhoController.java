@@ -11,30 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gov.sp.fatec.springboot3app.entity.Usuario;
-import br.gov.sp.fatec.springboot3app.service.IUsuarioService;
+import br.gov.sp.fatec.springboot3app.entity.Trabalho;
+import br.gov.sp.fatec.springboot3app.service.ITrabalhoService;
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/trabalho")
 @CrossOrigin
-public class UsuarioController {
+public class TrabalhoController {
 
     @Autowired
-    private IUsuarioService service;
-    
+    private ITrabalhoService service;
+
     @GetMapping
-    public List<Usuario> todosUsuarios() {
-        return service.buscarTodosUsuarios();
+    public List<Trabalho> todosTrabalhos() {
+        return service.buscarTodostrabalhos();
     }
 
     @PostMapping
-    public Usuario novoUsuario(@RequestBody Usuario usuario) {
-        return service.novoUsuario(usuario);
+    public Trabalho novoTrabalho(@RequestBody Trabalho trabalho) {
+        return service.novoTrabalho(trabalho);
     }
 
     @GetMapping(value = "/{id}")
-    public Usuario buscarPorId(@PathVariable("id") Long id) {
-        return service.buscarUsuarioPorId(id);
+    public Trabalho buscarPorId(@PathVariable("id") Long id) {
+        return service.buscarTrabalhoPorId(id);
     }
-    
+
 }
